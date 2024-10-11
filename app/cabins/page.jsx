@@ -1,10 +1,9 @@
-// import CabinCard from "@/app/_components/CabinCard";
+import CabinsList from "@/app/_components/CabinsList";
+import { Suspense } from "react";
+import Spinner from "../_components/Spinner";
 
-import CabinCard from "../_components/CabinCard";
-
-export default function Page() {
+export default async function Page() {
   // CHANGE
-  const cabins = [];
 
   return (
     <div>
@@ -19,14 +18,9 @@ export default function Page() {
         home away from home. The perfect spot for a peaceful, calm vacation.
         Welcome to paradise.
       </p>
-
-      {cabins.length > 0 && (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
-          {cabins.map((cabin) => (
-            <CabinCard cabin={cabin} key={cabin.id} />
-          ))}
-        </div>
-      )}
+      <Suspense fallback={<Spinner />}>
+        <CabinsList />
+      </Suspense>
     </div>
   );
 }
