@@ -7,7 +7,6 @@ export async function generateMetadata({ params }) {
   return {
     title: `Cabin ${name}`,
     description: description,
-    image: image,
   };
 }
 
@@ -18,19 +17,13 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }) {
   const cabin = await getCabin(params.cabinId);
-  const { id, name, maxCapacity, regularPrice, discount, image, description } =
-    cabin;
+  const { id, name, maxCapacity, regularPrice, discount, image, description } = cabin;
 
   return (
     <div className="max-w-6xl mx-auto mt-8">
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
         <div className="relative scale-[1.15] -translate-x-3">
-          <Image
-            fill
-            className="object-cover"
-            src={image}
-            alt={`Cabin ${name}`}
-          />
+          <Image fill className="object-cover" src={image} alt={`Cabin ${name}`} />
         </div>
 
         <div>
@@ -66,9 +59,7 @@ export default async function Page({ params }) {
       </div>
 
       <div>
-        <h2 className="text-5xl font-semibold text-center">
-          Reserve today. Pay on arrival.
-        </h2>
+        <h2 className="text-5xl font-semibold text-center">Reserve today. Pay on arrival.</h2>
       </div>
     </div>
   );
