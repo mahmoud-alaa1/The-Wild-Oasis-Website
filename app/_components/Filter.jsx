@@ -1,7 +1,16 @@
 "use client";
+
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
 function Filter() {
+  const searchparams = useSearchParams();
+  const router = useRouter();
+  const pathName = usePathname();
   function handleFileter(filter) {
-    
+    const params = new URLSearchParams(searchparams);
+    params.set("capacity", filter);
+
+    router.replace(`${pathName}?${params.toString()}`, { scroll: false });
   }
   return (
     <div className="border border-primary-800 flex">
