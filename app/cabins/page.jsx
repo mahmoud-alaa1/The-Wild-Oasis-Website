@@ -2,13 +2,13 @@ import CabinsList from "@/app/_components/CabinsList";
 import { Suspense } from "react";
 import Spinner from "../_components/Spinner";
 
-
-export const revalidate = 3600;
+export const revalidate = 3600; //no longer takes effect because it is dynamic page for search params
 // export const revalidate = 15;
 
-export default function Page() {
+export default function Page({ searchParams }) {
   // CHANGE
-
+  const filter = searchParams?.capacity ?? "all";
+  console.log("filter", filter);
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">Our Luxury Cabins</h1>
@@ -19,7 +19,7 @@ export default function Page() {
         peaceful, calm vacation. Welcome to paradise.
       </p>
       <Suspense fallback={<Spinner />}>
-        <CabinsList />
+        <CabinsList filter={filter} />
       </Suspense>
     </div>
   );

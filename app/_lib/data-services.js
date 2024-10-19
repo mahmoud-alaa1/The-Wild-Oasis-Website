@@ -13,7 +13,6 @@ export async function getNumberOfCabins() {
     console.error(error);
     throw new Error("Cabins number couldn't not be loaded");
   }
-  console.log("cabins number.....", count);
   return count;
 }
 
