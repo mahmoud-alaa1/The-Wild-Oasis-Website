@@ -1,6 +1,7 @@
 import CabinsList from "@/app/_components/CabinsList";
 import { Suspense } from "react";
 import Spinner from "../_components/Spinner";
+import Filter from "../_components/Filter";
 
 export const revalidate = 3600; //no longer takes effect because it is dynamic page for search params
 // export const revalidate = 15;
@@ -18,6 +19,9 @@ export default function Page({ searchParams }) {
         under the stars. Enjoy nature&apos;s beauty in your own little home away from home. The perfect spot for a
         peaceful, calm vacation. Welcome to paradise.
       </p>
+      <div className="flex justify-end mb-8">
+        <Filter />
+      </div>
       <Suspense fallback={<Spinner />}>
         <CabinsList filter={filter} />
       </Suspense>
