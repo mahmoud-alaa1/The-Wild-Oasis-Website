@@ -20,6 +20,7 @@ function User() {
               alt={session.user.name}
               referrerPolicy="no-referrer"
               fill
+              sizes="8"
             />
           </div>
           <span>Guest area</span>
