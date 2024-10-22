@@ -1,13 +1,11 @@
+import WelcomeAccount from "../_components/WelcomeAccount";
+
 export const metadata = {
   title: "Guest Area",
 };
 
 function page() {
-  return (
-    <h2 className="font-semibold text-2xl text-accent-400 mb-7">
-      Welcome, Mahmoud
-    </h2>
-  );
+  return <WelcomeAccount />;
 }
 
 export default page;
