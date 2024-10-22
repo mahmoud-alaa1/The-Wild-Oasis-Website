@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuth } from "../context/AuthContext";
+import { useSession } from "next-auth/react";
 import { useReservation } from "../context/ReservationContext";
 import LoginMessage from "./LoginMessage";
 import User from "./User";
@@ -9,7 +9,7 @@ function ReservationForm({ cabin }) {
   const { range } = useReservation();
   // CHANGE
   const { maxCapacity } = cabin;
-  const session = useAuth();
+  const session = useSession();
 
   return (
     <>
