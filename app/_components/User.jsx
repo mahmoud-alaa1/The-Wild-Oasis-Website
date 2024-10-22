@@ -23,7 +23,7 @@ function User() {
               sizes="8"
             />
           </div>
-          <span>Guest area</span>
+          <span>{session.data.user.name}</span>
         </Link>
       ) : (
         <Link href="/account" className="hover:text-accent-400 transition-colors">

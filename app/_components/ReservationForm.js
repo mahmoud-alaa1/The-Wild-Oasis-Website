@@ -10,10 +10,10 @@ function ReservationForm({ cabin }) {
   // CHANGE
   const { maxCapacity } = cabin;
   const session = useSession();
-
+  console.log(session);
   return (
     <>
-      {!session?.user ? (
+      {!session.data? (
         <LoginMessage />
       ) : (
         <div className="scale-[1.01]">
