@@ -10,7 +10,9 @@ const josefin = Josefin_Sans({
 
 import "@/app/_styles/globals.css";
 import Header from "@/starter/components/Header";
-import { ReservationProvider } from "./_components/ReservationContext";
+import { ReservationProvider } from "./context/ReservationContext";
+import { AuthProvider } from "./context/AuthContext";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata = {
   // title: "The Wild Oasis",
@@ -23,15 +25,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col`}>
-        <Header />
-        <div className="flex-1 px-8 py-12 grid">
-          <main className="max-w-7xl mx-auto w-full">
-            <ReservationProvider>{children}</ReservationProvider>
-          </main>
-        </div>
-      </body>
-    </html>
+    <SessionProvider>
+      <AuthProvider>
+        <html lang="en">
+          <body
+            className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col`}
+          >
+            <Header />
+            <div className="flex-1 px-8 py-12 grid">
+              <main className="max-w-7xl mx-auto w-full">
+                <ReservationProvider>{children}</ReservationProvider>
+              </main>
+            </div>
+          </body>
+        </html>
+      </AuthProvider>
+    </SessionProvider>
   );
 }
