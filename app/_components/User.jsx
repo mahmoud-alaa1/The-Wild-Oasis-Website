@@ -1,9 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
+import SpinnerMini from "./SpinnerMini";
 
 function User() {
   const session = useAuth();
+
+  if (session?.loading) return <SpinnerMini />;
 
   return (
     <>
