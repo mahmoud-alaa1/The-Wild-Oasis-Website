@@ -9,10 +9,10 @@ const josefin = Josefin_Sans({
 });
 
 import "@/app/_styles/globals.css";
-import Header from "@/starter/components/Header";
 import { ReservationProvider } from "./context/ReservationContext";
 import { AuthProvider } from "./context/AuthContext";
 import { SessionProvider } from "next-auth/react";
+import Header from "./_components/Header";
 
 export const metadata = {
   // title: "The Wild Oasis",
